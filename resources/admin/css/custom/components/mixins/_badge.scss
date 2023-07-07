@@ -1,0 +1,10 @@
+
+@mixin badge-variant-light($bg) {
+  color: $bg;
+  background-color: rgba($bg, 0.18);
+}
+@mixin hover-focus {
+    &:hover, &:focus {
+        @content;
+    }
+}

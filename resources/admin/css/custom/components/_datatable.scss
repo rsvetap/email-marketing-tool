@@ -1,0 +1,44 @@
+table.dataTable.nowrap th {
+  text-align: center;
+}
+
+table.dataTable td {
+  border: 1px solid $blue-light;
+  padding: 5px 10px 5px 10px;
+  vertical-align: middle;
+}
+
+table.dataTable th {
+  border: 1px solid $blue-light;
+  background-color: rgba(86, 135, 219, 0.15);
+  color: black;
+}
+
+table.dataTable.nowrap td, table.dataTable.nowrap th {
+  font-size: 12px;
+  white-space: unset;
+  word-break: break-all;
+}
+
+.dt-body-center {
+  text-align: center;
+}
+
+.detail-table {
+  width: 100%;
+  border: 1px solid $blue-light;
+}
+
+.detail-table thead tr th {
+  color: black;
+  padding-left: 10px;
+  height: 40px;
+  border: 1px solid theme-color("primary");
+  background-color: rgba(86, 135, 219, 0.15);
+}
+
+.detail-table tbody tr td {
+  color: black;
+  padding: 3px 10px 3px 10px;
+  border: 1px solid $blue-light;
+}
