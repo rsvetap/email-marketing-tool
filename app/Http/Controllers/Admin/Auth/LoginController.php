@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Web\Auth;
+namespace App\Http\Controllers\Admin\Auth;
 
-use App\Http\Controllers\Admin\Web\Controller;
+use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\PasswordBroker;

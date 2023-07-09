@@ -15,13 +15,13 @@
         <!--- side menu -->
         <ul class="metismenu side-nav">
 
-                <li class="side-nav-title side-nav-item">Navigation</li>
-                <li class="side-nav-item">
-                    <a href="{{ route('admin.dashboard.index') }}" class="side-nav-link" title="Dashboard">
-                        <i class="dripicons-meter"></i>
-                        <span> Dashboard </span>
-                    </a>
-                </li>
+            <li class="side-nav-title side-nav-item">Navigation</li>
+            <li class="side-nav-item">
+                <a href="{{ route('admin.dashboard.index') }}" class="side-nav-link" title="Dashboard">
+                    <i class="dripicons-meter"></i>
+                    <span> Dashboard </span>
+                </a>
+            </li>
 
         </ul>
     </div>
