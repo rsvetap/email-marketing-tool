@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\Admin;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use Stripe\Exception\ApiErrorException;
 
 class AdminSeeder extends Seeder
 {

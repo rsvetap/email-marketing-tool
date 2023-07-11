@@ -1,5 +1,4 @@
-require('metismenu')
-require('select2')
+require('./bootstrap')
 require('./hyper');
 require('./admin');
 require('./forms');

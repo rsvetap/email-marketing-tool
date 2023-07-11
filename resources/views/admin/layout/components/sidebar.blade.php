@@ -22,6 +22,12 @@
                     <span> Dashboard </span>
                 </a>
             </li>
+            <li class="side-nav-item">
+                <a href="{{ route('admin.customer.index') }}" class="side-nav-link" title="Customers">
+                    <i class="dripicons-meter"></i>
+                    <span> Customers </span>
+                </a>
+            </li>
 
         </ul>
     </div>

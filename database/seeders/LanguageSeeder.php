@@ -5,9 +5,6 @@ namespace Database\Seeders;
 use App\Models\Language;
 use Illuminate\Database\Seeder;
 
-/**
- * Class CountriesSeeder
- */
 class LanguageSeeder extends Seeder
 {
     /**
