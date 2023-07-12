@@ -3,6 +3,8 @@
 use App\Http\Controllers\Admin\Customer\CustomerController;
 use App\Http\Controllers\Admin\Customer\CustomerGroupController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\EmailTemplateController;
+use App\Http\Controllers\Admin\Tools\CKEditorController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -77,6 +79,33 @@ Route::group([
                 Route::get('{group}', 'show')->name('show');
                 Route::put('{group}', 'update')->name('update');
                 Route::delete('{group}', 'destroy')->name('destroy');
+            });
+        });
+
+        //******************************************************************************************************
+        // EMAIL TEMPLATES
+        //******************************************************************************************************
+        Route::group([
+            'as' => 'email-template.',
+            'prefix' => 'email-templates',
+        ], function () {
+            Route::controller(EmailTemplateController::class)->group(function () {
+                Route::get('', 'index')->name('index');
+                Route::get('datatable', 'datatable')->name('datatable');
+                Route::get('{template}', 'show')->name('show');
+                Route::get('create', 'create')->name('create');
+                Route::post('store', 'store')->name('store');
+                Route::put('{template}', 'update')->name('update');
+                Route::delete('{template}', 'destroy')->name('destroy');
+            });
+        });
+
+        //******************************************************************************************************
+        // CKEDITOR
+        //******************************************************************************************************
+        Route::group(['as' => 'ckeditor.', 'prefix' => 'ckeditors'], function () {
+            Route::controller(CKEditorController::class)->group(function () {
+                Route::post('upload', 'upload')->name('upload');
             });
         });
 

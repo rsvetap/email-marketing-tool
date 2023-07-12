@@ -34,6 +34,12 @@
                     <span> Customer Groups </span>
                 </a>
             </li>
+            <li class="side-nav-item">
+                <a href="{{ route('admin.email-template.index') }}" class="side-nav-link" title="Email Templates">
+                    <i class="dripicons-meter"></i>
+                    <span> Email Templates </span>
+                </a>
+            </li>
         </ul>
     </div>
     <!-- Sidebar -left -->
