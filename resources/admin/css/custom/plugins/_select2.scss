@@ -79,16 +79,17 @@
             border: 0;
         }
         .select2-selection__choice {
-            background-color: $primary;
+            background-color: $primary!important;
             border: none;
-            color: $white;
+            color: $white!important;
             border-radius: 3px;
             padding: 0 7px 0 22px;
             margin-top: 6px;
         }
         .select2-selection__choice__remove {
-            color: $white;
+            color: $white!important;
             margin-right: 5px;
+            border: black;
             &:hover {
                 background-color: transparent;
                 color: $white;

@@ -9,10 +9,17 @@ $(function () {
         $('.unwrap-block').show();
     });
 
-    // COMPANIES PAGE START
-    // show form field according to the chosen company type
-    // COMPANIES PAGE END
-
     // SELECT2 INIT START
+
+    $('.select2').each(function() {
+        console.log($(this));
+        $(this).select2();
+    });
+
     // SELECT2 INIT END
+
+    $('input[type="checkbox"]').change(function () {
+        let value = $(this).is(':checked') ? 1 : 0;
+        $(this).val(value)
+    });
 });

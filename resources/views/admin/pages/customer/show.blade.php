@@ -16,5 +16,15 @@
         </div>
     </div><!-- .row -->
 
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    @include('admin.pages.customer.form.attach-customer-groups')
+                </div>
+            </div>
+        </div>
+    </div><!-- .row -->
+
 @endsection
 

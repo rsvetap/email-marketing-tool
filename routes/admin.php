@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Admin\CustomerController;
-use App\Http\Controllers\Admin\CustomerGroupController;
+use App\Http\Controllers\Admin\Customer\CustomerController;
+use App\Http\Controllers\Admin\Customer\CustomerGroupController;
 use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -58,6 +58,7 @@ Route::group([
                 Route::get('{customer}', 'show')->name('show');
                 Route::put('{customer}', 'update')->name('update');
                 Route::delete('{customer}', 'destroy')->name('destroy');
+                Route::post('{customer}', 'attachGroups')->name('attachGroups');
             });
         });
 
