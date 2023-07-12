@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\CustomerGroupController;
 use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -57,6 +58,24 @@ Route::group([
                 Route::get('{customer}', 'show')->name('show');
                 Route::put('{customer}', 'update')->name('update');
                 Route::delete('{customer}', 'destroy')->name('destroy');
+            });
+        });
+
+        //******************************************************************************************************
+        // CUSTOMER GROUPS
+        //******************************************************************************************************
+        Route::group([
+            'as' => 'customer-group.',
+            'prefix' => 'customer-groups',
+        ], function () {
+            Route::controller(CustomerGroupController::class)->group(function () {
+                Route::get('', 'index')->name('index');
+                Route::get('datatable', 'datatable')->name('datatable');
+                Route::get('create', 'create')->name('create');
+                Route::post('store', 'store')->name('store');
+                Route::get('{group}', 'show')->name('show');
+                Route::put('{group}', 'update')->name('update');
+                Route::delete('{group}', 'destroy')->name('destroy');
             });
         });
 

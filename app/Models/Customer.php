@@ -3,10 +3,13 @@
 namespace App\Models;
 
 use App\Enums\CustomerSexEnum;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
 {
+    use HasFactory;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -34,6 +37,6 @@ class Customer extends Model
 
     public function groups()
     {
-        return $this->belongsToMany(CustomerGroup::class, 'customer_to_group');
+        return $this->belongsToMany(CustomerGroup::class, 'customer_to_group', 'customer_id', 'group_id');
     }
 }

@@ -28,7 +28,12 @@
                     <span> Customers </span>
                 </a>
             </li>
-
+            <li class="side-nav-item">
+                <a href="{{ route('admin.customer-group.index') }}" class="side-nav-link" title="Customer Groups">
+                    <i class="dripicons-meter"></i>
+                    <span> Customer Groups </span>
+                </a>
+            </li>
         </ul>
     </div>
     <!-- Sidebar -left -->

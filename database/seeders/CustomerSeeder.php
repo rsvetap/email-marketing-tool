@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Customer;
 use App\Enums\CustomerSexEnum;
+use App\Models\CustomerGroup;
 use Illuminate\Database\Seeder;
 
 /**
@@ -16,23 +17,30 @@ class CustomerSeeder extends Seeder
      *
      * @return void
      */
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
     public function run()
     {
-        Customer::create([
-            'email' => 'john@example.com',
-            'first_name' => 'John',
-            'last_name' => 'Doe',
-            'sex' => CustomerSexEnum::MALE,
-            'birth_date' => '1990-01-01',
-        ]);
+        // Create 3 customer groups
+        $groups = CustomerGroup::factory()->count(3)->create();
 
-        Customer::create([
-            'email' => 'jane@example.com',
-            'first_name' => 'Jane',
-            'last_name' => 'Doe',
-            'sex' => CustomerSexEnum::FEMALE,
-            'birth_date' => '1995-05-10',
-        ]);
+        // Create 10 customers
+        $customers = Customer::factory()->count(10)->create();
 
+        // Assign customers to different groups
+        foreach ($customers as $customer) {
+            // Assign the customer to a random group
+            $group = $groups->random();
+            $customer->groups()->attach(['group_id' => $group->id]);
+
+            // For two customers, assign them to a second random group
+            if ($customer->id <= 2) {
+                $secondGroup = $groups->where('id', '!=', $group->id)->random();
+                $customer->groups()->attach($secondGroup->id);
+            }
+        }
     }
 }
