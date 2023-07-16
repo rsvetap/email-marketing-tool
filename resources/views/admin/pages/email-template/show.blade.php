@@ -10,6 +10,8 @@
         'previous_route_url'    => route('admin.email-template.index')
     ])
 
+    @include('admin.layout.components.error-messages')
+
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -18,7 +20,19 @@
                 </div>
             </div>
         </div>
-    </div><!-- .row -->
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    @include('admin.pages.email-template.form.set-placeholders')
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @include('admin.layout.components.error-messages')
 
 @endsection
 

@@ -3,15 +3,23 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\EmailTemplate\EmailTemplatePlaceholdersUpdateRequest;
 use App\Http\Requests\Admin\EmailTemplate\EmailTemplateUpdateRequest;
 use App\Models\Customer;
 use App\Models\EmailTemplate;
+use App\Services\EmailTemplateService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\View\View;
 
 class EmailTemplateController extends Controller
 {
+    public function __construct(
+        public EmailTemplateService $emailTemplateService,
+    ) { }
+
     /**
      * Display a listing of the resource.
      */
@@ -26,8 +34,10 @@ class EmailTemplateController extends Controller
     public function show(EmailTemplate $template): View
     {
         $customers = Customer::all();
+        $placeholderValues = Schema::getColumnListing('customers');
+        $placeholderValues = array_diff($placeholderValues, ['id']);
 
-        return view('admin.pages.email-template.show', compact(['template', 'customers']));
+        return view('admin.pages.email-template.show', compact(['template', 'customers', 'placeholderValues']));
     }
 
     /**
@@ -36,6 +46,7 @@ class EmailTemplateController extends Controller
     public function store(EmailTemplateUpdateRequest $request)
     {
         $emailTemplate = EmailTemplate::create($request->validated());
+        $emailTemplate->placeholders = $this->emailTemplateService->getPlaceholders($emailTemplate->body);
         $emailTemplate->save();
 
         return redirect(route('admin.email-template.show', $emailTemplate))
@@ -56,6 +67,7 @@ class EmailTemplateController extends Controller
     public function update(EmailTemplateUpdateRequest $request, EmailTemplate $template): RedirectResponse
     {
         $data = $request->validated();
+        $data['placeholders'] = $this->emailTemplateService->getPlaceholders($template->body);
         $template->update($data);
 
         return redirect(route('admin.email-template.show', $template))
@@ -117,5 +129,22 @@ class EmailTemplateController extends Controller
                 'email_template_action',
             ])
             ->make(true);
+    }
+
+    /**
+     * Save placeholders of the template
+     *
+     * @param EmailTemplatePlaceholdersUpdateRequest $request
+     * @param EmailTemplate $template
+     * @return RedirectResponse
+     */
+    public function setPlaceholders(EmailTemplatePlaceholdersUpdateRequest $request, EmailTemplate $template)
+    {
+        $request = $request->validated();
+        $template->placeholders = json_decode($request['placeholders'], true);
+        $template->save();
+
+        return redirect()->back()
+            ->with('success', trans('system.flash.message.updated', ['resource' => 'Placeholders']));
     }
 }

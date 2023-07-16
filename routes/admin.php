@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\Customer\CustomerController;
 use App\Http\Controllers\Admin\Customer\CustomerGroupController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EmailTemplateController;
+use App\Http\Controllers\Admin\EmailToolController;
 use App\Http\Controllers\Admin\Tools\CKEditorController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -97,6 +98,16 @@ Route::group([
                 Route::get('{template}', 'show')->name('show');
                 Route::put('{template}', 'update')->name('update');
                 Route::delete('{template}', 'destroy')->name('destroy');
+                Route::post('{template}', 'setPlaceholders')->name('set-placeholders');
+            });
+        });
+
+        Route::group([
+            'as' => 'email-sending.',
+            'prefix' => 'email-sending',
+        ], function () {
+            Route::controller(EmailToolController::class)->group(function () {
+                Route::post('', 'send')->name('send');
             });
         });
 

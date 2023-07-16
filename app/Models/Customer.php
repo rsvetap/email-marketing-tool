@@ -39,4 +39,9 @@ class Customer extends Model
     {
         return $this->belongsToMany(CustomerGroup::class, 'customer_to_group', 'customer_id', 'group_id');
     }
+
+    public function getFullNameAttribute(): string
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }
 }

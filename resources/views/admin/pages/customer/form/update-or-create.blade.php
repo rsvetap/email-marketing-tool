@@ -61,7 +61,7 @@
                                class="form-control"
                                id="birth_date"
                                name="birth_date"
-                               value="{{ old('birth_date', isset($customer) ? $customer->birth_date->format('Y-m-d') : '') }}"
+                               value="{{ old('birth_date', (isset($customer) && !is_null($customer->birth_date)) ? $customer->birth_date->format('Y-m-d') : '') }}"
                         >
                     </div>
                 </div>

@@ -99,9 +99,13 @@ class CustomerController extends Controller
             ->addColumn('customer_sex',
                 fn(Customer $customer) => $customer->sex
             )
-            ->addColumn('customer_birth_date',
-                fn(Customer $customer) => $this->rawDateTime(dateTime: $customer->birth_date)
-            )
+            ->addColumn('customer_birth_date',function(Customer $customer) {
+                if ($customer->birth_date) {
+                    return $this->rawDateTime(dateTime: $customer->birth_date);
+                } else {
+                    return null;
+                }
+            })
             ->addColumn('customer_created_at',
                 fn(Customer $customer) => $this->rawDateTime(dateTime: $customer->created_at)
             )

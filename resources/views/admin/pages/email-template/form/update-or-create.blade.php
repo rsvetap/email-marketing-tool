@@ -40,10 +40,6 @@
         ])
     </div><!-- Text Body -->
 
-    @if (isset($template))
-        @include('admin.layout.components.error-messages')
-    @endif
-
     <div class="row">
         <div class="col-md-12 text-right">
             <button type="submit" class="btn btn-md btn-primary mt-1">

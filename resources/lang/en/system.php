@@ -1,14 +1,16 @@
 <?php
 
 return array (
-  'flash' => 
+  'flash' =>
   array (
-    'message' => 
+    'message' =>
     array (
       'updated' => '<b>":resource"</b> has been updated successfully!',
       'created' => '<b>":resource"</b> has been created successfully!',
       'deleted' => '<b>":resource"</b> has been deleted successfully!',
       'error' => 'An error has occurred with <b>":resource"</b>. Please try again later or contact customer support for further assistance.',
+      'email_failed' => 'Email failed<br>":error_message"',
+      'email_succeed' => 'Email successfully sent',
     ),
   ),
 );
