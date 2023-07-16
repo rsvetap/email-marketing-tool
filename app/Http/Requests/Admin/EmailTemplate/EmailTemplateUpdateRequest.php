@@ -24,6 +24,7 @@ class EmailTemplateUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'template_name' => 'required|max:255',
             'subject' => 'required|max:255',
             'body' => 'required',
         ];

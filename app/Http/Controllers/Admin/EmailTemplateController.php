@@ -81,10 +81,13 @@ class EmailTemplateController extends Controller
      */
     public function datatable(): JsonResponse
     {
-        $emailTemplates = EmailTemplate::all();
+        $emailTemplates = EmailTemplate::query();
 
         return datatables()
             ->of($emailTemplates)
+            ->addColumn('email_template_name',
+                fn(EmailTemplate $emailTemplate) => $emailTemplate->template_name
+            )
             ->addColumn('email_template_subject',
                 fn(EmailTemplate $emailTemplate) => $emailTemplate->subject
             )

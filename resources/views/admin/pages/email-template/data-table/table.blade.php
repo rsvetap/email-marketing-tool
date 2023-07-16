@@ -3,11 +3,13 @@
         <table id="email-templates-dt" class="table dt-responsive nowrap">
             <thead>
             <tr>
+                <th>Template Name</th>
                 <th>Subject</th>
                 <th>Action</th>
             </tr>
             <tfoot>
             <tr>
+                <th>Template Name</th>
                 <th>Subject</th>
                 <th>Action</th>
             </tr>
@@ -25,6 +27,11 @@
                 ajax: '{{ route('admin.email-template.datatable') }}',
 
                 columns: [
+                    {
+                        name: 'template_name',
+                        data: 'email_template_name',
+                        className: 'dt-body-center'
+                    },
                     {
                         name: 'subject',
                         data: 'email_template_subject',

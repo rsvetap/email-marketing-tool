@@ -5,7 +5,20 @@
     <div class="form-row">
         <div class="col-12">
             <div class="form-group">
-                <label for="title">Subject</label>
+                <label for="template_name">Template Name</label>
+                <input type="text"
+                       class="form-control"
+                       id="template_name"
+                       name="template_name"
+                       value="{{ old('template_name', isset($template) ? $template->template_name : '') }}"
+                       required>
+            </div>
+        </div>
+    </div><!-- Template Name -->
+    <div class="form-row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="subject">Subject</label>
                 <input type="text"
                        class="form-control"
                        id="subject"

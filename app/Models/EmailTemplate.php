@@ -13,6 +13,7 @@ class EmailTemplate extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'template_name',
         'subject',
         'body',
         'placeholders',

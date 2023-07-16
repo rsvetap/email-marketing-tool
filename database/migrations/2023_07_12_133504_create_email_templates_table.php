@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('email_templates', function (Blueprint $table) {
             $table->id();
+            $table->string('template_name');
             $table->string('subject');
             $table->text('body');
             $table->jsonb('placeholders')->nullable();
