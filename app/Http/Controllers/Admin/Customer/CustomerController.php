@@ -114,7 +114,11 @@ class CustomerController extends Controller
                         'show' => [
                             'route_name' => 'admin.customer.show',
                             'url'        => route('admin.customer.show', $customer),
-                        ]
+                        ],
+                        'delete' => [
+                            'route_name' => 'admin.customer.destroy',
+                            'url'        => route('admin.customer.destroy', $customer),
+                        ],
                     ]
                 ])
             )

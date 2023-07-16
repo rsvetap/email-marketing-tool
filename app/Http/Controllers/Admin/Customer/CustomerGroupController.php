@@ -83,7 +83,11 @@ class CustomerGroupController extends Controller
                         'show' => [
                             'route_name' => 'admin.customer-group.show',
                             'url'        => route('admin.customer-group.show', $group),
-                        ]
+                        ],
+                        'delete' => [
+                            'route_name' => 'admin.customer-group.destroy',
+                            'url'        => route('admin.customer-group.destroy', $group),
+                        ],
                     ]
                 ])
             )

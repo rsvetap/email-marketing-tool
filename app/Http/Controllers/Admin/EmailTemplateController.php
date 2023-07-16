@@ -100,7 +100,11 @@ class EmailTemplateController extends Controller
                         'show' => [
                             'route_name' => 'admin.email-template.show',
                             'url'        => route('admin.email-template.show', $emailTemplate),
-                        ]
+                        ],
+                        'delete' => [
+                            'route_name' => 'admin.email-template.destroy',
+                            'url'        => route('admin.email-template.destroy', $emailTemplate),
+                        ],
                     ]
                 ])
             )
