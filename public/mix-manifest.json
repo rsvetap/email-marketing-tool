@@ -1,6 +1,6 @@
 {
-    "/assets/admin/js/app.js": "/assets/admin/js/app.js?id=cef4a668cf56cae923f38ee91b97bba5",
-    "/assets/admin/css/app.css": "/assets/admin/css/app.css?id=f290d49c284685128c33cfd4e089cdfc",
+    "/assets/admin/js/app.js": "/assets/admin/js/app.js?id=01b398db9d020ce24346a0c80b202c75",
+    "/assets/admin/css/build.css": "/assets/admin/css/build.css?id=9c0278f60f152fbba2d994c8e215d9ec",
     "/assets/admin/images/favicon.ico": "/assets/admin/images/favicon.ico?id=d41d8cd98f00b204e9800998ecf8427e",
     "/assets/admin/images/file-searching.svg": "/assets/admin/images/file-searching.svg?id=e29cd096e55d4c5057129e979da173f0",
     "/assets/admin/images/help-icon.svg": "/assets/admin/images/help-icon.svg?id=74f761e4e4d1fb49e7d728243469f52a",
@@ -36,5 +36,6 @@
     "/assets/admin/fonts/materialdesignicons-webfont.woff2": "/assets/admin/fonts/materialdesignicons-webfont.woff2?id=ae110c2ac9976b4e12d222d65a280733",
     "/assets/admin/fonts/summernote.eot": "/assets/admin/fonts/summernote.eot?id=475b5a5296bd1e8f0dff8ddee15e54d3",
     "/assets/admin/fonts/summernote.ttf": "/assets/admin/fonts/summernote.ttf?id=4fa3e838cf8ecd458d35b3635d55e161",
-    "/assets/admin/fonts/summernote.woff": "/assets/admin/fonts/summernote.woff?id=80f423c8366fa82b16ed8bdbf8006cfc"
+    "/assets/admin/fonts/summernote.woff": "/assets/admin/fonts/summernote.woff?id=80f423c8366fa82b16ed8bdbf8006cfc",
+    "/assets/admin/css/app.css": "/assets/admin/css/app.css?id=e968e7cb44323c7ac0a2b1ffe220bf8e"
 }
