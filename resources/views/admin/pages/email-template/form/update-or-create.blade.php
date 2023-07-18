@@ -31,7 +31,7 @@
 
     <div class="form-group">
         @include('admin.layout.components.form.ckeditor', [
-            'title'    => 'Body: ',
+            'title'    => 'Body (placeholders keys must be inside curly brackets @{{ key }} ): ',
             'id'       => 'body',
             'name'     => 'body',
             'value'    => old('body', isset($template) ? $template->body : ''),

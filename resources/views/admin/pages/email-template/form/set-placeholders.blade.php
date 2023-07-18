@@ -11,7 +11,7 @@
                     @php
                         $count = 0;
                     @endphp
-
+{{--@dd($template->placeholders );--}}
                     @foreach($template->placeholders as $key => $value)
                         <div class="form-row mb-2">
                             <div class="col-md-5">

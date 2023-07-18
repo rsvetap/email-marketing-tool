@@ -10,7 +10,6 @@ use App\Models\EmailTemplate;
 use App\Services\EmailTemplateService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\View\View;
 
@@ -46,7 +45,7 @@ class EmailTemplateController extends Controller
     public function store(EmailTemplateUpdateRequest $request)
     {
         $emailTemplate = EmailTemplate::create($request->validated());
-        $emailTemplate->placeholders = $this->emailTemplateService->getPlaceholders($emailTemplate->body);
+        $emailTemplate->placeholders = $this->emailTemplateService->getPlaceholders($emailTemplate->body, []);
         $emailTemplate->save();
 
         return redirect(route('admin.email-template.show', $emailTemplate))
@@ -67,7 +66,7 @@ class EmailTemplateController extends Controller
     public function update(EmailTemplateUpdateRequest $request, EmailTemplate $template): RedirectResponse
     {
         $data = $request->validated();
-        $data['placeholders'] = $this->emailTemplateService->getPlaceholders($template->body);
+        $template->placeholders = $this->emailTemplateService->getPlaceholders($data['body'], $template->placeholders);
         $template->update($data);
 
         return redirect(route('admin.email-template.show', $template))
