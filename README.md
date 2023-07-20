@@ -34,35 +34,33 @@ Install project dependencies using npm:
 npm install
 ```
 
-Copy the `.env.example` file to `.env` and modify the necessary configuration options (such as database and mail smtp settings).
+
+To start application run:
 
 ```
-cp .env.example .env
+doker compose up
 ```
 
-```
-DB_CONNECTION=pgsql
-DB_HOST=localhost
-DB_PORT=5432
-DB_DATABASE=
-DB_USERNAME=
-DB_PASSWORD=
+To get inside app container run:
 
-MAIL_MAILER=smtp
-MAIL_HOST=
-MAIL_PORT=
-MAIL_USERNAME=
-MAIL_PASSWORD=
-MAIL_ENCRYPTION=null
-MAIL_FROM_ADDRESS=
-MAIL_FROM_NAME="${APP_NAME}"
+```
+docker compose exec app bash
 ```
 
-Generate your application encryption key using `php artisan key:generate`
+## Generating PHP helpers
 
-Run  `php artisan migrate` and `php artisan db:seed` to create all necessary tables and fill them in with seed data
+- type hints, container: `php artisan ide-helper:generate && php artisan ide-helper:meta`
+- models: `php artisan ide-helper:models -RW`
+
+
+
+## Preparing app:
+
+Inside app container run  `php artisan migrate` and `php artisan db:seed` to create all necessary tables and fill them in with seed data
 
 ## Admin Panel
 
-To access the admin panel, go to `localhost/admin/login` on the server.
-Admin: `login:test@test.test`, `password:12345678`
+To access the admin panel, go to [http://marketing-tool.localtest.me/admin/login](http://marketing-tool.localtest.me/admin/login) on the server.
+Credentials:
+ - **login:** `test@test.test`
+ - **password:** `12345678`
