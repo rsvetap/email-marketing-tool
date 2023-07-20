@@ -47,6 +47,15 @@ To get inside app container run:
 docker compose exec app bash
 ```
 
+## Generating PHP helpers
+
+- type hints, container: `php artisan ide-helper:generate && php artisan ide-helper:meta`
+- models: `php artisan ide-helper:models -RW`
+
+
+
+## Preparing app:
+
 Inside app container run  `php artisan migrate` and `php artisan db:seed` to create all necessary tables and fill them in with seed data
 
 ## Admin Panel
